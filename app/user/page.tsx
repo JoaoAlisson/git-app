@@ -10,8 +10,6 @@ import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Link from 'next/link';
 import { IUser } from "../../src/models/user.model";
 import { getUser } from "../../src/api/api";
 import UserComponent from "../../src/components/UserComponent";
