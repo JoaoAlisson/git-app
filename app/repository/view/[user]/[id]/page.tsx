@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { IRepository } from "../../../../../src/models/repository.model";
 import { getRepository } from "../../../../../src/api/api";
+import RepositoryComponent from "../../../../../src/components/RepositoryComponent";
+import { Container, Stack } from "react-bootstrap";
 
 export default function Page({ params }: { params: { user: string, id: string } }) {
   const { user, id } = params;
@@ -15,16 +17,14 @@ export default function Page({ params }: { params: { user: string, id: string } 
     });
   }, [user, id]);
 
-  return <div>
-      <h1>Repositório Github</h1>
-      <div>
-        { repository ? <>
-          <div>Nome: {repository.name}</div>
-          <div>Descrição: {repository.description}</div>
-          <div>Estrelas: {repository.stargazers_count}</div>
-          <div>Linguagem: {repository.language}</div>
-          <div>Link: {repository.html_url}</div>
-        </> : '' }
-      </div>
-    </div>
+  return  (
+    <Stack gap={3}>
+      <Container>
+        <h1>Detalhes do Repositório</h1>
+      </Container>
+      <Container>
+        { repository && <RepositoryComponent repository={repository}></RepositoryComponent> }
+      </Container>
+    </Stack>
+  );
 }

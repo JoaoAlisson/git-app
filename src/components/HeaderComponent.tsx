@@ -14,6 +14,7 @@ export default function HeaderComponent() {
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/user">Pesquisar Usuário</Nav.Link>
+                    <Nav.Link href="https://github.com/JoaoAlisson/git-app">Projeto no Github</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

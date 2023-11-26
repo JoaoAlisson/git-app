@@ -11,7 +11,7 @@ interface IProps {
 
 export default function UserComponent({ user, showDetails }: IProps) {
     return (
-        <Card className="col-md-4">
+        <Card className="col-md-5">
             <Card.Img variant="top" src={user.avatar_url} />
             <Card.Body>
                 <Card.Title>{user.name}</Card.Title>
@@ -20,7 +20,8 @@ export default function UserComponent({ user, showDetails }: IProps) {
                         <>
                             <div><b>E-mail: </b> {user.email || 'Não público'}</div>
                             <div><b>Seguidores: </b> {user.followers}</div>
-                            <div><b>Seguindo: </b> {user.following}</div>                               
+                            <div><b>Seguindo: </b> {user.following}</div>
+                            <div><b>Perfil no Github: </b> <a href={user.html_url}>{user.html_url}</a></div>                               
                         </>
                     }
                     <div><b>Bio: </b> {user.bio}</div>            
