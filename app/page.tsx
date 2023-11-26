@@ -20,18 +20,22 @@ export default function Page() {
             <Badge bg="secondary">Implementado em 26/11/2023</Badge>
             <Card.Title>Feito com muito <i className="bi bi-heart-fill"></i></Card.Title>
             <Card.Text>
-              <div>
-                <b>Link do projeto: </b>
+            <Stack gap={3}>
+              <Container>
+                <div>
+                  <b>Link do projeto: </b>
                   <a href="https://github.com/JoaoAlisson/git-app" target="_blank">
                     https://github.com/JoaoAlisson/git-app
                   </a>
-              </div>
-              <div>
-                <b>Autor: </b>
+                </div>
+                <div>
+                  <b>Autor: </b>
                   <a href="https://github.com/JoaoAlisson" target="_blank">
                     https://github.com/JoaoAlisson
                   </a>
-              </div>
+                </div>
+              </Container>
+            </Stack>
             </Card.Text>
           </Card.Body>
         </Card>
@@ -78,7 +82,7 @@ export default function Page() {
                 </Container>
 
                 <Container>
-                  Renomear o arquivo "<b>env.local</b>" para "<b>.env.local</b>": 
+                  Renomear o arquivo <b>env.local</b> para <b>.env.local</b>: 
                   <Card>
                     <Card.Body>
                       <Card.Text>
