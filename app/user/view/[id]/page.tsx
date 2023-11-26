@@ -1,10 +1,9 @@
 'use client'
 
-import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IUser } from "../../../../src/models/user.model";
-import { IResponse } from "../../../../src/models/response.model";
+import { getUser } from "../../../../src/api/api";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -12,8 +11,8 @@ export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState({} as IUser);
 
   useEffect(() => {
-    axios.get<IUser>(`${process.env.NEXT_PUBLIC_GIT_API}/users/${id}`).then(({ data }) => {
-      setUser(data);
+    getUser(id).then(user => {
+      setUser(user);
     });
   }, [id]);
 

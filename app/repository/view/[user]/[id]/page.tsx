@@ -1,8 +1,8 @@
 'use client'
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { IRepository } from "../../../../../src/models/repository.model";
+import { getRepository } from "../../../../../src/api/api";
 
 export default function Page({ params }: { params: { user: string, id: string } }) {
   const { user, id } = params;
@@ -10,8 +10,8 @@ export default function Page({ params }: { params: { user: string, id: string } 
   const [repository, setRepository] = useState({} as IRepository);
 
   useEffect(() => {
-    axios.get<IRepository>(`${process.env.NEXT_PUBLIC_GIT_API}/repos/${user}/${id}`).then(({ data }) => {
-      setRepository(data);
+    getRepository({ user, id }).then(repository => {
+      setRepository(repository);
     });
   }, [user, id]);
 

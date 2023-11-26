@@ -1,17 +1,17 @@
 'use client'
 
-import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react"
 import { IRepository } from "../../../../src/models/repository.model";
+import { getRepositoryList } from "../../../../src/api/api";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { id } = params;
   const [repositorys, setRepositorys] = useState([] as IRepository[])
   
   useEffect(() => {
-    axios.get<IRepository[]>(`${process.env.NEXT_PUBLIC_GIT_API}/users/${id}/repos`).then(({ data }) => {
-      setRepositorys(data);
+    getRepositoryList(id).then(repositorys => {
+      setRepositorys(repositorys);
     });
   }, [id])
 

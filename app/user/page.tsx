@@ -1,11 +1,10 @@
 'use client'
 
-import axios from "axios";
 import { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom"
 import Link from 'next/link'
 import { IUser } from "../../src/models/user.model";
-import { IResponse } from "../../src/models/response.model";
+import { getUser } from "../../src/api/api";
 
 function searchUser(setUser: (user: any) => void) {
   return async (_: any, formData: FormData) => {
@@ -14,8 +13,8 @@ function searchUser(setUser: (user: any) => void) {
     if(!userName || userName.trim() === '') return;
 
     try {
-      const response: IResponse<IUser> = await axios.get<IUser>(`${process.env.NEXT_PUBLIC_GIT_API}/users/${userName}`);
-      setUser(response.data);
+      const user: IUser = await getUser(userName);
+      setUser(user);
     } catch {
       setUser(null);
     }
