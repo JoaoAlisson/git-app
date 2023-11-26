@@ -14,6 +14,7 @@ import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { IUser } from "../../src/models/user.model";
 import { getUser } from "../../src/api/api";
+import UserComponent from "../../src/components/UserComponent";
 
 const emptyUser: IUser | null = null;
 
@@ -100,19 +101,7 @@ export default function Page() {
             <Row>
               <Col>
                 { user?.id 
-                  ? <Card className="col-md-4">
-                      <Card.Img variant="top" src={user.avatar_url} />
-                      <Card.Body>
-                        <Card.Title>{user.name}</Card.Title>
-                        <Card.Text>
-                          <p>
-                            <b>Bio: </b> {user.bio}
-                          </p>
-                          <Link className="" href={`/repository/list/${user.login}`}>Repositórios do Usuário</Link>
-                        </Card.Text>
-                        <Link className="btn btn-primary" href={`/user/view/${user.login}`}>Detalhes do Usuário</Link>
-                      </Card.Body>
-                    </Card>        
+                  ? <UserComponent user={user} showDetails={false}></UserComponent>        
                   : <Alert variant="warning">Usuário não encontrado</Alert>
                 }
               </Col>

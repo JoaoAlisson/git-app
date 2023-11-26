@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './styles.module.css';
-import Header from '../src/components/Header';
+import HeaderComponent from '../src/components/HeaderComponent';
 
 export const metadata = {
   title: 'Github API APP',
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <Header></Header>
+        <HeaderComponent></HeaderComponent>
         <main className={styles.mainContainer}>
           <section className={styles.mainContent}>{children}</section>
         </main>

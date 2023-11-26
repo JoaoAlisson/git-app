@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IUser } from "../../../../src/models/user.model";
 import { getUser } from "../../../../src/api/api";
+import UserComponent from "../../../../src/components/UserComponent";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -19,15 +20,7 @@ export default function Page({ params }: { params: { id: string } }) {
   return <div>
       <h1>Buscar usuário Github</h1>
       <div>
-        { user?.id ? <>
-          <div>Nome: {user.name}</div>
-          <div>E-mail: {user.email}</div>
-          <div>Seguidores: {user.followers}</div>
-          <div>Seguindo: {user.following}</div>
-          <div>Bio: {user.bio}</div>
-          <div>Avatar: {user.avatar_url}</div>
-          <Link href={`/repository/list/${user.login}`}>Repositórios do Usuário</Link>
-        </> : '' }
+        { user?.id && <UserComponent user={user} showDetails={true}></UserComponent> }
       </div>
     </div>
 }
