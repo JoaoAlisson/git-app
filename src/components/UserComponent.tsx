@@ -4,12 +4,12 @@ import { Card } from 'react-bootstrap';
 import { IUser } from '../models/user.model';
 import Link from 'next/link';
 
-interface IParams {
+interface IProps {
     user: IUser; 
     showDetails: boolean
 };
 
-export default function UserComponent({ user, showDetails }: IParams) {
+export default function UserComponent({ user, showDetails }: IProps) {
     return (
         <Card className="col-md-4">
             <Card.Img variant="top" src={user.avatar_url} />

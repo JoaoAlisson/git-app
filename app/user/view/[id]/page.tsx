@@ -1,10 +1,10 @@
 'use client'
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IUser } from "../../../../src/models/user.model";
 import { getUser } from "../../../../src/api/api";
 import UserComponent from "../../../../src/components/UserComponent";
+import { Container, Stack } from "react-bootstrap";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -17,10 +17,14 @@ export default function Page({ params }: { params: { id: string } }) {
     });
   }, [id]);
 
-  return <div>
-      <h1>Buscar usuário Github</h1>
-      <div>
+  return (
+    <Stack gap={3}>
+      <Container>
+        <h1>Detalhes do Usuário</h1>
+      </Container>
+      <Container>
         { user?.id && <UserComponent user={user} showDetails={true}></UserComponent> }
-      </div>
-    </div>
+      </Container>
+    </Stack>
+  );
 }
