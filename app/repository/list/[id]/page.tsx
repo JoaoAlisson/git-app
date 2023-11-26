@@ -8,8 +8,14 @@ import { Container, Stack } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import styles from '../../../styles.module.css';
 
+enum FieldValues {
+  NAME = 'name',
+  STARS = 'stargazers_count',
+  LANGUAGE = 'language'
+}
+
 interface ISort {
-  field: string;
+  field: FieldValues;
   asc: boolean
 };
 
@@ -21,6 +27,10 @@ export default function Page({ params }: { params: { id: string } }) {
   useEffect(() => {
     getRepositoryList(id).then(repositorys => {
       setRepositorys(repositorys);
+      setSort({
+        field: FieldValues.STARS,
+        asc: false
+      });
     });
   }, [id]);
 
@@ -29,11 +39,11 @@ export default function Page({ params }: { params: { id: string } }) {
       let greater = 0;
 
       let prevValue = prev[sort.field]?.toLowerCase
-        ? prev[sort.field]?.toLowerCase
+        ? prev[sort.field].toLowerCase()
         : prev[sort.field];
 
       let currentValue = current[sort.field]?.toLowerCase
-        ? current[sort.field]?.toLowerCase
+        ? current[sort.field].toLowerCase()
         : current[sort.field];
       
       if(!prevValue) prevValue = '';
@@ -60,7 +70,7 @@ export default function Page({ params }: { params: { id: string } }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sort]);
 
-  function handleSortClick(field: string): void {
+  function handleSortClick(field: FieldValues): void {
     const newSort = sort.field === field ? {
       field,
       asc: !sort.asc
@@ -81,24 +91,24 @@ export default function Page({ params }: { params: { id: string } }) {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th onClick={() => handleSortClick('name')} className={styles.clickable}>
-                {sort.field === 'name' && <>
+              <th onClick={() => handleSortClick(FieldValues.NAME)} className={styles.clickable}>
+                {sort.field === FieldValues.NAME && <>
                   {sort.asc 
                     ? <i className="bi bi-arrow-up-short"></i> 
                     : <i className="bi bi-arrow-down-short"></i> }
                 </>}
                  Nome
               </th>
-              <th onClick={() => handleSortClick('stargazers_count')} className={styles.clickable}>
-                {sort.field === 'stargazers_count' && <>
+              <th onClick={() => handleSortClick(FieldValues.STARS)} className={styles.clickable}>
+                {sort.field === FieldValues.STARS && <>
                   {sort.asc 
                     ? <i className="bi bi-arrow-up-short"></i> 
                     : <i className="bi bi-arrow-down-short"></i> }
                 </>}
                 Estrelas
               </th>
-              <th onClick={() => handleSortClick('language')} className={styles.clickable}>
-                {sort.field === 'language' && <>
+              <th onClick={() => handleSortClick(FieldValues.LANGUAGE)} className={styles.clickable}>
+                {sort.field === FieldValues.LANGUAGE && <>
                   {sort.asc 
                     ? <i className="bi bi-arrow-up-short"></i> 
                     : <i className="bi bi-arrow-down-short"></i> }
