@@ -1,0 +1,11 @@
+.mainContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+}
