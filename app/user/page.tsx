@@ -14,7 +14,7 @@ function searchUser(setUser: (user: any) => void) {
     if(!userName || userName.trim() === '') return;
 
     try {
-      const response: IResponse<IUser> = await axios.get<IUser>(`https://api.github.com/users/${userName}`);
+      const response: IResponse<IUser> = await axios.get<IUser>(`${process.env.NEXT_PUBLIC_GIT_API}/users/${userName}`);
       setUser(response.data);
     } catch {
       setUser(null);

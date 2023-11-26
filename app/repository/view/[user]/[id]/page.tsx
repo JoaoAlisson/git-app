@@ -10,7 +10,7 @@ export default function Page({ params }: { params: { user: string, id: string } 
   const [repository, setRepository] = useState({} as IRepository);
 
   useEffect(() => {
-    axios.get<IRepository>(`https://api.github.com/repos/${user}/${id}`).then(({ data }) => {
+    axios.get<IRepository>(`${process.env.NEXT_PUBLIC_GIT_API}/repos/${user}/${id}`).then(({ data }) => {
       setRepository(data);
     });
   }, [user, id]);

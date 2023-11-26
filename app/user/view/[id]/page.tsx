@@ -12,7 +12,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState({} as IUser);
 
   useEffect(() => {
-    axios.get<IUser>(`https://api.github.com/users/${id}`).then(({ data }) => {
+    axios.get<IUser>(`${process.env.NEXT_PUBLIC_GIT_API}/users/${id}`).then(({ data }) => {
       setUser(data);
     });
   }, [id]);
