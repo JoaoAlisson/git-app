@@ -3,7 +3,7 @@ Esta é uma aplicação client-side, que consulta a API do GitHub e mostra os re
 
 **Link para demo**: [https://git-app-ochre.vercel.app](https://git-app-ochre.vercel.app)
 
-Foi utilizada a cloud da [https://vercel.com/](Vecel) atual mantenedora do Nextjs
+Foi utilizada a cloud da [https://vercel.com/](Vecel) atual mantenedora do **Nextjs**.
 
 ## Stack
 
