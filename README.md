@@ -7,7 +7,7 @@ Foi utilizada a cloud da [https://vercel.com/](Vecel) atual mantenedora do **Nex
 
 ## Stack
 
-- Next v14.0.3
+- Next v14.0.3 (Atual forma recomendada para criar um projeto React [https://react.dev/learn/start-a-new-react-project](https://react.dev/learn/start-a-new-react-project))
 - React v18.2.38
 - React Bootstrap v5.3.2
 - Axios v1.6.2
