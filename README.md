@@ -1,6 +1,8 @@
 # Sobre
 Esta é uma aplicação client-side, que consulta a API do GitHub e mostra os repositórios mais populares de um determinado usuário.
 
+**Link para demo**: [https://git-app-ochre.vercel.app](https://git-app-ochre.vercel.app)
+
 ## Stack
 
 - Next v14.0.3
