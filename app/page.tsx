@@ -173,6 +173,42 @@ export default function Page() {
           </Card.Body>
         </Card>
       </Container>
+
+      <Container>
+        <Card>
+          <Card.Body>
+            <Card.Title>Testes</Card.Title>
+            <Card.Text>
+              <Stack gap={3}>
+                <Container>
+                  Apenas a título de exemplo, implementei o teste do arquivo <b>api.ts</b>
+                </Container>
+                <Container>
+                  Rodando testes com <b>NPM</b>: 
+                  <Card>
+                    <Card.Body>
+                      <Card.Text>
+                        <code>npm run test</code>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>                
+                </Container>
+
+                <Container>
+                  Rodando testes com <b>Yarn</b>: 
+                  <Card>
+                    <Card.Body>
+                      <Card.Text>
+                        <code>yarn test</code>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>                
+                </Container>
+              </Stack>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Container>
   </Stack>
   );
 }

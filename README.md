@@ -56,3 +56,17 @@ yarn dev
 
 A aplicação deve rodar por padrão na porta **3000**:
 [http://localhost:3000](http://localhost:3000)
+
+
+## Testes
+Apenas a título de exemplo, implementei o teste do arquivo **api.ts**
+
+Rodando testes com **NPM**:
+```bash
+npm run test
+```
+
+Rodando testes com **Yarn**:
+```bash
+yarn test
+```

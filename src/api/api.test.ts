@@ -5,7 +5,7 @@ import { IRepository } from "../models/repository.model";
 
 process.env.NEXT_PUBLIC_GIT_API = 'git-api-url';
 
-describe('all', () => {
+describe('test api', () => {
     const mockUser: IUser = {
         id: "id-1",
         name: "user name",
