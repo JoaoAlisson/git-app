@@ -13,6 +13,7 @@ import Button from 'react-bootstrap/Button';
 import { IUser } from "../../src/models/user.model";
 import { getUser } from "../../src/api/api";
 import UserComponent from "../../src/components/UserComponent";
+import styles from "../styles.module.css";
 
 const emptyUser: IUser | null = null;
 
@@ -54,7 +55,7 @@ export default function Page() {
         <Container>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Row>
-              <Col md={5}>
+              <Col md={5} className={styles.paddingBottom}>
                 <Form.Group controlId="validationCustomUser">
                   <InputGroup hasValidation>
                     <Form.Control 
@@ -73,7 +74,7 @@ export default function Page() {
                   </InputGroup>
                 </Form.Group>
               </Col>
-              <Col sm={12} md={3}>
+              <Col sm={12} md={3} className={styles.paddingBottom}>
                 <Button 
                   type="submit" 
                   variant="success" 

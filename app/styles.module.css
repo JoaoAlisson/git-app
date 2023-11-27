@@ -13,3 +13,7 @@
 .clickable {
     cursor: pointer;
 }
+
+.paddingBottom {
+    padding-bottom: 0.5rem;
+}
